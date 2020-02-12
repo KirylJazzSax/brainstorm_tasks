@@ -12,8 +12,6 @@ function isIncreasing($n)
         $n = (int)$n / 10;
         $beforeLastNumber = $n % 10;
 
-        echo $lastNumber . ' ' . $beforeLastNumber . ' ' . PHP_EOL;
-
         if ($beforeLastNumber >= $lastNumber) return false;
     }
 }
