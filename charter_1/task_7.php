@@ -4,7 +4,6 @@ function compareNumber(int $n, int $compareValue): bool
 {
     while (true) {
         if ($n < 1) return false;
-        echo $compareValue . ' ' . ($n % 10) . ' ' . PHP_EOL;
         if ($compareValue == $n % 10) return true;
         $n = (int)($n / 10);
     }
