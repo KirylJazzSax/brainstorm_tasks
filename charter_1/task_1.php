@@ -2,6 +2,7 @@
 
 function countNaturalDigits($n)
 {
+    $n = (int)$n;
     if ($n < 0) return 'Введите положительное число';
 
     if ($n > 5 || $n === 5) {
