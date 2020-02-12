@@ -2,14 +2,22 @@
 
 function countNaturalDigits($n)
 {
+    if ($n < 0) return 'Введите положительное число!';
     $n = (int)$n;
-    if ($n < 0) return 'Введите положительное число';
 
-    if ($n > 5 || $n === 5) {
-        return 5;
+    $flag = true;
+    $counter = 0;
+
+    while ($flag) {
+        $number = $n % 10;
+        if ($n === 0) return $counter;
+        if ($number < 5) {
+            $counter++;
+        }
+        $n = (int)($n / 10);
     }
 
-    return $n + 1;
+    return $counter;
 }
 
-echo countNaturalDigits(5) . PHP_EOL;
+echo countNaturalDigits(125601295) . PHP_EOL;
