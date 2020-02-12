@@ -10,7 +10,7 @@ function compareNumber(int $n, int $compareValue): bool
     }
 }
 
-function hasSameNumbers($n): bool
+function hasSameNumbers(int $n): bool
 {
     if ($n < 0) return false;
     while (true) {
