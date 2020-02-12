@@ -14,11 +14,10 @@ function getSumDigits($n)
     return $sum;
 }
 
-function getFourDigitsNumbers($n)
+function getFourDigitsNumbers(int $n)
 {
     if ($n < 0) return 'Введите положительное число!';
 
-    $n = (int)$n;
     $i = 1000;
 
     while ($i < 10000) {

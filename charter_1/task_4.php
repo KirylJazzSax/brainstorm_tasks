@@ -1,9 +1,8 @@
 <?php
 
-function increaseOrDecrease($n)
+function increaseOrDecrease(int $n)
 {
     if ($n < 0) return false;
-    $n = (int)$n;
     $increase = (int)(($n % 100) / 10) < $n % 10 ? 1 : 0;
 
     while(true) {

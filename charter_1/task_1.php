@@ -1,9 +1,8 @@
 <?php
 
-function countNaturalDigits($n)
+function countNaturalDigits(int $n)
 {
     if ($n < 0) return 'Введите положительное число!';
-    $n = (int)$n;
 
     $counter = 0;
 
