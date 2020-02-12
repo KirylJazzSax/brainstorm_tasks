@@ -1,6 +1,6 @@
 <?php
 
-function isIncreasing(int $n)
+function isIncreasing(int $n): bool
 {
     if ($n < 0) return false;
 

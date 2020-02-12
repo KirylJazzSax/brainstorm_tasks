@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * @param int $n
+ * @return int|string
+ */
 function countNaturalDigits(int $n)
 {
     if ($n < 0) return 'Введите положительное число!';

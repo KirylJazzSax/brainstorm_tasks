@@ -1,6 +1,6 @@
 <?php
 
-function revertNumber(int $n)
+function revertNumber(int $n): int
 {
     if ($n < 0) return false;
 

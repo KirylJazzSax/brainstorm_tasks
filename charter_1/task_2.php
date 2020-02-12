@@ -1,6 +1,6 @@
 <?php
 
-function getSumDigits($n)
+function getSumDigits($n): int
 {
     $sum = 0;
 
@@ -14,16 +14,20 @@ function getSumDigits($n)
     return $sum;
 }
 
-function getFourDigitsNumbers(int $n)
+function getFourDigitsNumbers(int $n): void
 {
-    if ($n < 0) return 'Введите положительное число!';
+    if ($n > 0) {
+        $i = 1000;
+        $j = 10000;
+    } else {
+        $i = -10000;
+        $j = -1000;
+    }
 
-    $i = 1000;
-
-    while ($i < 10000) {
+    while ($i < $j) {
         if (getSumDigits($i) === $n) echo $i . PHP_EOL;
         $i++;
     }
 }
-getFourDigitsNumbers(27);
 
+getFourDigitsNumbers(33);
