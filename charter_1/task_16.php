@@ -30,7 +30,7 @@ function getSumDividers(array $dividers): int
     return $sum;
 }
 
-function getDividers(int $n): array
+function printDividers(int $n): array
 {
     if (isSimple($n)) {
         return [$n, 1];
@@ -56,7 +56,7 @@ function getDividers(int $n): array
 function getPerfectNums($n, $m): void
 {
     while ($n < $m) {
-        if (getSumDividers(getDividers($n)) == $n) echo $n . ' ';
+        if (getSumDividers(printDividers($n)) == $n) echo $n . ' ';
         $n++;
     }
     echo PHP_EOL;
