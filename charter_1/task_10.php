@@ -29,6 +29,10 @@ function countDigits(int $n): int
     return $counter;
 }
 
+/**
+ * @param int $n
+ * @return bool|int
+ */
 function getLastDigits(int $n)
 {
     if (countDigits($n) % 2 != 0 || countDigits($n) == 2) {
