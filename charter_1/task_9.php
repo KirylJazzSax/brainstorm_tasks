@@ -1,6 +1,6 @@
 <?php
 
-function isAutomorphic(int $n, $previous = null): bool
+function isAutomorphic(int $n): bool
 {
     $number = $n;
     $lastDigit = null;
