@@ -53,7 +53,7 @@ function printDividers(int $n): array
     return $dividers;
 }
 
-function getPerfectNums($n, $m): void
+function printPerfectNums($n, $m): void
 {
     while ($n < $m) {
         if (getSumDividers(printDividers($n)) == $n) echo $n . ' ';
@@ -62,4 +62,4 @@ function getPerfectNums($n, $m): void
     echo PHP_EOL;
 }
 
-getPerfectNums(5, 500);
+printPerfectNums(5, 500);
