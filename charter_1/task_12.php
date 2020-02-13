@@ -6,7 +6,7 @@ function isSimple(int $n): bool
     if ($n == 1 || $n == 2) return true;
 
     if ($n % 1 == 0) {
-        $i = 3;
+        $i = 2;
         while ($i < $n) {
             if ($i == $n - 1) return true;
             if ($n % $i == 0) return false;
@@ -15,4 +15,4 @@ function isSimple(int $n): bool
     }
 }
 
-echo isSimple(7) ? "yes\n": "no\n";
+echo isSimple(3) ? "yes\n": "no\n";
