@@ -66,9 +66,13 @@ function getMaxSumDividers(...$dividers): int
 
     $i = 0;
     $max = 0;
+    $num = 0;
     while (true) {
-        if (!isset($dividers[$i])) return $max;
-        if ($max < getSumNumsInArray(getDividers($dividers[$i]))) $max = getSumNumsInArray(getDividers($dividers[$i]));
+        if (!isset($dividers[$i])) return $num;
+        if ($max < getSumNumsInArray(getDividers($dividers[$i]))) {
+            $max = getSumNumsInArray(getDividers($dividers[$i]));
+            $num = $dividers[$i];
+        }
         $i++;
     }
 }
