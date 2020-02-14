@@ -67,7 +67,6 @@ function printFriendlyNums($n, $m): void
         return;
     }
 
-
     while ($n < $m) {
         $j = $n;
         while ($j < $m) {
