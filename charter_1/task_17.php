@@ -53,6 +53,19 @@ function getDividers(int $n): array
     return $dividers;
 }
 
+function multiplyValuesInArray(array $arr): int
+{
+    $i = 0;
+    $result = 1;
+    while (true) {
+        if (empty($arr[$i])) break;
+        $result *= $arr[$i];
+        $i++;
+    }
+    return $result;
+}
+
+
 function compareDividers($dividerToCompare, $compareDividers): bool
 {
     $i = 0;
@@ -67,22 +80,31 @@ function compareDividers($dividerToCompare, $compareDividers): bool
     return false;
 }
 
+function isInArray(array $arr, int $num): bool
+{
+    $i = 0;
+    while (true) {
+        if (empty($arr[$i])) return false;
+        if ($arr[$i] == $num) return true;
+        $i++;
+    }
+}
+
 function findCommonDivider(int $n, int $m): int
 {
     if ($n < 0 || $m < 0) return 0;
 
     $i = 0;
-    $common = 0;
+    $commons = [];
 
     while (true) {
-        if (!empty(getDividers($n)[$i])) {
-            if (compareDividers(getDividers($n)[$i], getDividers($m)) && getDividers($n)[$i] > $common) $common = getDividers($n)[$i];
-            $i++;
-        } else {
-            break;
+        if (empty(getDividers($n)[$i])) break;
+        if (compareDividers(getDividers($n)[$i], getDividers($m)) && !isInArray($commons, getDividers($n)[$i])) {
+            $commons[] = getDividers($n)[$i];
         }
+        $i++;
     }
-    return $common == 0 ? 1 : $common;
+    return multiplyValuesInArray($commons);
 }
 
-echo findCommonDivider(390, 612) . PHP_EOL;
+echo findCommonDivider(24, 25) . PHP_EOL;
