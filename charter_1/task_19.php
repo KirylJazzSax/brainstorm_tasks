@@ -53,7 +53,7 @@ function getDividers(int $n): array
     return $dividers;
 }
 
-function multiplyValuesInArray(array $arr)
+function multiplyValuesInArray(array $arr): int
 {
     $i = 0;
     $result = 1;
