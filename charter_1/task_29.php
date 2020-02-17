@@ -13,19 +13,6 @@ function revertNumber(int $n): int
     }
 }
 
-function isIncreasing(int $n): bool
-{
-    while(true) {
-        if ($n == 0) return true;
-
-        $lastNumber = $n % 10;
-        $n = (int)($n / 10);
-        $beforeLastNumber = $n % 10;
-
-        if ($beforeLastNumber >= $lastNumber) return false;
-    }
-}
-
 function increaseItArray(int $n): array
 {
     if (isIncreasing($n)) return convertDigitsToArray($n);
