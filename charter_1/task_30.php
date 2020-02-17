@@ -84,8 +84,7 @@ function printNumsTwins(...$nums): void
     if (!isNaturalNums($nums)) return;
     $i = 0;
     $simpleNumsArray = arraySort(arrayFilter($nums, 'isSimple'));
-    $length = arrayLength($simpleNumsArray);
-    while ($i < $length) {
+    while (true) {
         if (!isset($nums[$i + 1])) break;
         if (($simpleNumsArray[$i + 1] - $simpleNumsArray[$i]) == 2)
             echo $simpleNumsArray[$i + 1] . ' ' . $simpleNumsArray[$i] . PHP_EOL;
