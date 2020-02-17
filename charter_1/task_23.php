@@ -26,16 +26,6 @@ function isIncreasing(int $n): bool
     }
 }
 
-function getBiggestDigit(int $n): int
-{
-    $max = 0;
-    while (true) {
-        if ($n < 1) return $max;
-        if ($max < $n % 10) $max = $n % 10;
-        $n = (int)($n / 10);
-    }
-}
-
 function getAmountValuesInArray(array $arr): int
 {
     $i = 0;
