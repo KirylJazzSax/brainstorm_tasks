@@ -68,5 +68,3 @@ $biggestEvenNum = getBiggestElementInArray(
 );
 
 echo "Максимальное среди четных $biggestEvenNum минимальное среди нечетных $smallestOddNum\n";
-
-
