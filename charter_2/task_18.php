@@ -93,7 +93,6 @@ function getDifferentElements(array $array): array
             $array = arraySplice($array, getIndexOf($array, $repeatedElements[$i]));
         }
     }
-    print_r($array);
     return $array;
 }
 
