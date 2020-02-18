@@ -47,7 +47,6 @@ function getBiggestElementInArray(array $arr): int
 
 function getSmallestElementInArray(array $arr): int
 {
-    print_r($arr);
     $min = $arr[0];
     for ($i = 0; $i < arrayLength($arr); $i++) {
         if ($min > $arr[$i]) $min = $arr[$i];
