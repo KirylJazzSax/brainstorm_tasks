@@ -66,7 +66,7 @@ function arrayPop(array $array, int $amount = null)
     for ($i = $length; $i > $index; $i--) {
         $result[] = $array[$i];
     }
-    return array_reverse($result);
+    return reverseArray($result);
 }
 
 /**
