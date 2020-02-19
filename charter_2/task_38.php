@@ -104,11 +104,20 @@ function getPositiveElements(array $array): array
     return arrayFilter($array, 'isPositive');
 }
 
+function getZero(array $array): array
+{
+    return arrayFilter($array, function ($element) {
+        return $element === 0;
+    });
+}
+
 function getResultArray(array $array): array
 {
     $negativeSorted = arraySort(
         getNegativeElements($array)
     );
+
+    $zero = getZero($array);
 
     $positiveSortedOtherWay = reverseArray(
         arraySort(
@@ -116,7 +125,8 @@ function getResultArray(array $array): array
         )
     );
 
-    return insertIntoArray($negativeSorted, $positiveSortedOtherWay);
+    $negativeWithZero = insertIntoArray($negativeSorted, $zero);
+    return insertIntoArray($negativeWithZero, $positiveSortedOtherWay);
 }
 
 function echoArrayWithKeys(array $arr): void
@@ -128,7 +138,7 @@ function echoArrayWithKeys(array $arr): void
 
 ###################################################################################################################
 
-$array = [2, 3, 6, -5, -8, -7, -4, 8, 9, 5, 3];
+$array = [2, 3, 6, -5, 0, -8, 0, -7, 0, -4, 8, 9, 5, 3];
 
 echoArrayWithKeys(
     getResultArray($array)
