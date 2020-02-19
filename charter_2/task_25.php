@@ -142,21 +142,28 @@ function getSmallestElements(array $array, int $k): array
  */
 function insertIntoArray(array $array, array $elements, $index = null): array
 {
-    $amount = (arrayLength($array) - 1) - $index;
-    $firstElements = arraySplice($array, $index + 1, $amount);
-    $lastElements = arrayPop($array, $amount);
-    $result = $firstElements;
+    if ($index === null) {
+        for ($i = 0; $i < arrayLength($elements); $i++) {
+            $array[] = $elements[$i];
+        }
+        return $array;
+    }
+
+    $result = [];
+
+    for ($i = 0; $i <= $index; $i++) {
+        $result[] = $array[$i];
+    }
 
     for ($i = 0; $i < arrayLength($elements); $i++) {
         $result[] = $elements[$i];
     }
 
-    for ($i = 0; $i < arrayLength($lastElements); $i++) {
-        $result[] = $lastElements[$i];
+    for ($i = $index + 1; $i < arrayLength($array); $i++) {
+        $result[] = $array[$i];
     }
 
     return $result;
-
 }
 
 function echoArrayWithKeys(array $arr): void
