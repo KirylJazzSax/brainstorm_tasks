@@ -20,6 +20,13 @@ function countDigits(int $n): int
     return $counter;
 }
 
+function arrayPush(array $array, $element): array
+{
+    $array[] = $element;
+    return $array;
+}
+
+
 function arraySplice(array $array, int $index, int $amount = 1): array
 {
     $result = [];
@@ -35,6 +42,18 @@ function arraySplice(array $array, int $index, int $amount = 1): array
     return $result;
 }
 
+function reverseArray(array $arr): array
+{
+    $i = arrayLength($arr);
+    $result = [];
+    while ($i > 0) {
+        $result[] = $arr[$i - 1];
+        $i--;
+    }
+    return $result;
+}
+
+
 function arrayPop(array $array, int $amount = null)
 {
     if (!$amount) return $array[arrayLength($array) - 1];
@@ -45,7 +64,7 @@ function arrayPop(array $array, int $amount = null)
     for ($i = $length; $i > $index; $i--) {
         $result[] = $array[$i];
     }
-    return array_reverse($result);
+    return reverseArray($result);
 }
 
 function getIndexOfBiggestElementInArray(array $arr): int
@@ -105,6 +124,12 @@ function insertIntoArray(array $array, array $elements, $index = null): array
     return $result;
 }
 
+function removeElementsAfterMaxValue($array)
+{
+    $amount = arrayLength($array) - getIndexOfBiggestElementInArray($array);
+    return arraySplice($array, getIndexOfBiggestElementInArray($array) + 1, $amount);
+}
+
 function getElementsAfterMaxValue(array $array): array
 {
     $amount = (arrayLength($array) - 1) - getIndexOfBiggestElementInArray($array);
@@ -114,8 +139,19 @@ function getElementsAfterMaxValue(array $array): array
 function getElementsWithCertainAmountOfDigits(array $array, int $k): array
 {
     return arrayFilter($array, function ($element) use ($k) {
-         return countDigits($element) == $k ? true : false;
+        return countDigits($element) == $k ? true : false;
     });
+}
+
+function getResultArray(array $array, $k): array
+{
+    return insertIntoArray(
+        removeElementsAfterMaxValue($array),
+        getElementsWithCertainAmountOfDigits(
+            getElementsAfterMaxValue($array),$k
+        ),
+        getIndexOfBiggestElementInArray($array)
+    );
 }
 
 function echoArrayWithKeys(array $arr): void
@@ -129,11 +165,8 @@ function echoArrayWithKeys(array $arr): void
 ################################################################################################################
 
 $array = [343, -42, 5333, -632, 832, 73, 2111];
-$k = 4;
+$k = 3;
 
 echoArrayWithKeys(
-    getElementsWithCertainAmountOfDigits(
-        getElementsAfterMaxValue($array),
-        $k
-    )
+    getResultArray($array, $k)
 );
