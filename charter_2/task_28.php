@@ -124,7 +124,7 @@ function insertIntoArray(array $array, array $elements, $index = null): array
     return $result;
 }
 
-function removeElementsAfterMaxValue($array)
+function removeElementsAfterMaxValue(array $array): array
 {
     $amount = arrayLength($array) - getIndexOfBiggestElementInArray($array);
     return arraySplice($array, getIndexOfBiggestElementInArray($array) + 1, $amount);
@@ -148,7 +148,7 @@ function getResultArray(array $array, $k): array
     return insertIntoArray(
         removeElementsAfterMaxValue($array),
         getElementsWithCertainAmountOfDigits(
-            getElementsAfterMaxValue($array),$k
+            getElementsAfterMaxValue($array), $k
         ),
         getIndexOfBiggestElementInArray($array)
     );
@@ -160,7 +160,6 @@ function echoArrayWithKeys(array $arr): void
         echo $i . ' => ' . $arr[$i] . PHP_EOL;
     }
 }
-
 
 ################################################################################################################
 
