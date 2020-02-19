@@ -60,7 +60,6 @@ function arrayFilter(array $arr, callable $func): array
     return $result;
 }
 
-
 function arrayPush(array $array, $element): array
 {
     $array[] = $element;
@@ -80,19 +79,6 @@ function arraySplice(array $array, int $index, int $amount = 1): array
     }
 
     return $result;
-}
-
-function arrayPop(array $array, int $amount = null)
-{
-    if (!$amount) return $array[arrayLength($array) - 1];
-
-    $length = arrayLength($array) - 1;
-    $index = $length - $amount;
-    $result = [];
-    for ($i = $length; $i > $index; $i--) {
-        $result[] = $array[$i];
-    }
-    return array_reverse($result);
 }
 
 function getIndexOfSmallestElementInArray(array $arr): int
