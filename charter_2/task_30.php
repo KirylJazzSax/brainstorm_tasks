@@ -26,7 +26,6 @@ function getPolynomialValue(array $coefficients, int $x): int
     $maxPow = generateMaxPow($coefficients);
     $result = null;
     for ($i = 0; $i < arrayLength($coefficients); $i++) {
-        echo powNum($x, $maxPow) . PHP_EOL;
         $result = $result + ($coefficients[$i] * powNum($x, $maxPow));
         $maxPow--;
     }
