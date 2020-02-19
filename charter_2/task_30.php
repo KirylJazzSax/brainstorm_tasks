@@ -11,7 +11,8 @@ function arrayLength(array $arr): int
 
 function powNum(int $n, int $pow)
 {
-    if ($pow === 1 || $pow === 0) return 1;
+    if ($pow === 0) return 1;
+    if ($pow === 1) return $n;
     return $n * pow($n, $pow - 1);
 }
 
@@ -25,6 +26,7 @@ function getPolynomialValue(array $coefficients, int $x): int
     $maxPow = generateMaxPow($coefficients);
     $result = null;
     for ($i = 0; $i < arrayLength($coefficients); $i++) {
+        echo powNum($x, $maxPow) . PHP_EOL;
         $result = $result + ($coefficients[$i] * powNum($x, $maxPow));
         $maxPow--;
     }
