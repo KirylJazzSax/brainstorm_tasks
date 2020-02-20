@@ -26,12 +26,12 @@ function main(int $i, int $j): bool
     return $i === $j;
 }
 
-function higher(int $i, int $j): bool
+function lower(int $i, int $j): bool
 {
     return $i > $j;
 }
 
-function lower(int $i, int $j): bool
+function higher(int $i, int $j): bool
 {
     return $i < $j;
 }
