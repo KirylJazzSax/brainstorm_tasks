@@ -9,45 +9,46 @@ function arrayLength(array $arr): int
     }
 }
 
-function findSumElementsHigherMainDiagonal(array $array): int
+function arrayFilter(array $arr, callable $func): array
 {
-    $sum = null;
-
-    for ($i = 0; $i < arrayLength($array); $i++) {
-        for ($j = 0; $j < arrayLength($array[$i]); $j++) {
-            if ($i > $j) {
-                $sum = $sum + $array[$i][$j];
-            }
+    $result = [];
+    for ($i = 0; $i < arrayLength($arr); $i++) {
+        if ($func($arr[$i])) {
+            $result[] = $arr[$i];
         }
     }
 
-    return $sum;
+    return $result;
 }
 
-function findSumElementsLowerMainDiagonal(array $array): int
+function main(int $i, int $j): bool
+{
+    return $i === $j;
+}
+
+function higher(int $i, int $j): bool
+{
+    return $i > $j;
+}
+
+function lower(int $i, int $j): bool
+{
+    return $i < $j;
+}
+
+
+/**
+ * @param array $array
+ * @param callable $func condition for sum
+ * @return int
+ */
+function findSumDiagonal(array $array, callable $func): int
 {
     $sum = null;
 
     for ($i = 0; $i < arrayLength($array); $i++) {
         for ($j = 0; $j < arrayLength($array[$i]); $j++) {
-            if ($i < $j) {
-                $sum = $sum + $array[$i][$j];
-            }
-        }
-    }
-
-    return $sum;
-}
-
-function findSumElementsOnMainDiagonal(array $array): int
-{
-    $sum = null;
-
-    for ($i = 0; $i < arrayLength($array); $i++) {
-        for ($j = 0; $j < arrayLength($array[$i]); $j++) {
-            if ($i === $j) {
-                $sum += $array[$i][$j];
-            }
+            if ($func($i, $j)) $sum = $sum + $array[$i][$j];
         }
     }
 
@@ -58,6 +59,6 @@ function findSumElementsOnMainDiagonal(array $array): int
 
 $array = [[1, 2, 3], [4, 5, 6], [7, 8, 9]];
 
-echo 'Сумма главной диагонали ' . findSumElementsOnMainDiagonal($array) . PHP_EOL;
-echo 'Сумма выше главной диагонали ' . findSumElementsHigherMainDiagonal($array) . PHP_EOL;
-echo 'Сумма ниже главной диагонали ' . findSumElementsLowerMainDiagonal($array) . PHP_EOL;
+echo 'Сумма главной диагонали ' . findSumDiagonal($array, 'main') . PHP_EOL;
+echo 'Сумма выше главной диагонали ' . findSumDiagonal($array, 'higher') . PHP_EOL;
+echo 'Сумма ниже главной диагонали ' . findSumDiagonal($array, 'lower') . PHP_EOL;
