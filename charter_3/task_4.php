@@ -43,7 +43,7 @@ function getSumElements(array $array): array
 
     for ($i = 0; $i < arrayLength($array); $i++) {
         if (isContainsOnly($array[$i], 'isEqualToCertainNums')) {
-            // Если соответствует условию то помещая в массив индекс строки и сумму его элементов
+            // Если соответствует условию то помещаем в массив индекс строки и сумму его элементов
             $result[] = [$i, getSumNumsInArray($array[$i])];
         }
     }
