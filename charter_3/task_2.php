@@ -30,21 +30,6 @@ function getSumNumsInArray(array $nums): int
     return $sum;
 }
 
-function arraySplice(array $array, int $index, int $amount = 1): array
-{
-    $result = [];
-
-    for ($i = 0; $i < arrayLength($array); $i++) {
-        if ($i == $index) {
-            $i += $amount - 1;
-            continue;
-        }
-        $result = arrayPush($result, $array[$i]);
-    }
-
-    return $result;
-}
-
 function arrayFilter(array $arr, callable $func): array
 {
     $result = [];
