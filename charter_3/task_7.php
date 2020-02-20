@@ -27,7 +27,7 @@ function getIndexOfMultidimensional(array $array, int $element, callable $func =
     return false;
 }
 
-function replaceElementsInMultidimensional(array $array, $first, $second): array
+function replaceElementsInMultidimensional(array $array, array $first, array $second): array
 {
     $value = $array[$first[0]][$first[1]];
     $array[$first[0]][$first[1]] = $array[$second[0]][$second[1]];
