@@ -64,4 +64,6 @@ $array = [
     [1, -61, -5],
 ];
 
-print_r(getResultArray($array));
+echoMultiDimensionalArrayWithKeys(
+    getResultArray($array)
+);
