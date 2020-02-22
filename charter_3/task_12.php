@@ -41,6 +41,11 @@ function getColumns(array $array): array
     return $result;
 }
 
+function columnsToRows(array $columns): array
+{
+    return getColumns($columns);
+}
+
 function getSmallestElementInArray(array $arr): int
 {
     $min = $arr[0];
@@ -113,7 +118,7 @@ function getResultArray(array $array): array
     }
 
     // Тут получаем массив исходный с добавленными элементами
-    return getColumns($result);
+    return columnsToRows($result);
 }
 
 function echoMultiDimensionalArrayWithKeys(array $arr): void

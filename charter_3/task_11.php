@@ -103,7 +103,7 @@ function getResultArray(array $array): array
         while ($j < $count) {
             // Не увеличиваем $currentElement потому что arraySplice убирает индекс
             if (isEven($array[$i][$currentElement]) && isPositive($array[$i][$currentElement])) {
-                $array[$i] = arraySplice($array[$i], getIndexOf($array[$i], $array[$i][$currentElement]));
+                $array[$i] = arraySplice($array[$i], $currentElement);
                 $j++;
                 continue;
             }
@@ -127,7 +127,7 @@ function echoMultiDimensionalArrayWithKeys(array $arr): void
 #################################################################################################################
 
 $array = [
-    [3, 4, -88, 2, 6, -18],
+    [3, 4, -2, 2, 6, -18],
     [-8, -20, 4, 5, 6, -16],
     [6, -7, 4, 5, 6, 6],
     [1, -61, 4, 5, 6, -5],
