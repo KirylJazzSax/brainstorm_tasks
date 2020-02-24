@@ -15,6 +15,7 @@ function moveToTheEndEmptyRows(array $array): array
 {
     $length = arrayLength($array) - 1;
     for ($i = $length; $i >= 0; $i--) {
+        // Перемещаем в конец массива если строка пустая
         if (arrayLength($array[$i]) == 0) {
             for ($j = $i; $j < $length; $j++) {
                 $element = $array[$j];
