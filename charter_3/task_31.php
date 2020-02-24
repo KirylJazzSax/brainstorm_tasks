@@ -47,6 +47,12 @@ function isMultipleOf(int $element, int $p): bool
 
 #################################################################################################################
 
+/**
+ * @param callable $sorting Сортировка строки массива
+ * @param callable $condition условие для функции $doSome
+ * @param callable $doSome если соответствует условию $condition то функция выполнится
+ * @return callable
+ */
 function prepareSortedRow(callable $sorting, callable $condition, callable $doSome): callable
 {
     return function (array &$array, int $p) use ($sorting, $condition, $doSome): array {
@@ -59,11 +65,11 @@ function prepareSortedRow(callable $sorting, callable $condition, callable $doSo
     };
 }
 
-function prepareArrayWithSortedRows(callable $preparedRow): callable
+function prepareArrayWithSortedRows(callable $prepareRow): callable
 {
-    return function (array $array, int $p) use ($preparedRow): array {
+    return function (array $array, int $p) use ($prepareRow): array {
         for ($i = 0; $i < arrayLength($array); $i++) {
-            $preparedRow($array[$i], $p);
+            $prepareRow($array[$i], $p);
         }
         return $array;
     };
@@ -91,8 +97,8 @@ $array = [
 $p = 2;
 
 
-$preparedRow = prepareSortedRow('arraySort', 'isMultipleOf', 'pushToTheEnd');
-$resultArray = prepareArrayWithSortedRows($preparedRow);
+$prepareRow = prepareSortedRow('arraySort', 'isMultipleOf', 'pushToTheEnd');
+$resultArray = prepareArrayWithSortedRows($prepareRow);
 
 echoMultiDimensionalArrayWithKeys(
     $resultArray($array, $p)
