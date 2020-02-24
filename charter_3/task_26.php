@@ -13,9 +13,10 @@ function arrayLength(array $arr): int
 
 function moveToTheEndEmptyRows(array $array): array
 {
-    for ($i = arrayLength($array) - 1; $i >= 0; $i--) {
+    $length = arrayLength($array) - 1;
+    for ($i = $length; $i >= 0; $i--) {
         if (arrayLength($array[$i]) == 0) {
-            for ($j = $i; $j < arrayLength($array) - 1; $j++) {
+            for ($j = $i; $j < $length; $j++) {
                 $element = $array[$j];
                 $array[$j] = $array[$j + 1];
                 $array[$j + 1] = $element;
