@@ -27,16 +27,14 @@ function countPositiveElements(array $array): int
 function sortMultiByPositiveElementsDesc(array $array): array
 {
     for ($i = 0; $i < arrayLength($array); $i++) {
-        if ($i > 0) {
-            $j = $i;
-            while ($j >= 0) {
-                if ($j > 0 && countPositiveElements($array[$j - 1]) < countPositiveElements($array[$j])) {
-                    $row = $array[$j];
-                    $array[$j] = $array[$j - 1];
-                    $array[$j - 1] = $row;
-                }
-                $j--;
+        $j = $i;
+        while ($j >= 0) {
+            if ($j > 0 && countPositiveElements($array[$j - 1]) < countPositiveElements($array[$j])) {
+                $row = $array[$j];
+                $array[$j] = $array[$j - 1];
+                $array[$j - 1] = $row;
             }
+            $j--;
         }
     }
 
