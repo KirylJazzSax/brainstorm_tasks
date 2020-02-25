@@ -82,11 +82,11 @@ function prepareIndexRowWithBiggestSum(callable $prepareRow): callable
     };
 }
 
-function prepareArray(callable $prepareIndexBiggestSum, callable $sorter, callable $doSomeWithElementWithBiggestIndex): callable
+function prepareArray(callable $prepareIndexBiggestSum, callable $sorter, callable $doSomeWithElementWithBiggestSum): callable
 {
-    return function (array $array) use ($prepareIndexBiggestSum, $sorter, $doSomeWithElementWithBiggestIndex): array {
+    return function (array $array) use ($prepareIndexBiggestSum, $sorter, $doSomeWithElementWithBiggestSum): array {
         $sorter($array);
-        $doSomeWithElementWithBiggestIndex($array, $prepareIndexBiggestSum($array));
+        $doSomeWithElementWithBiggestSum($array, $prepareIndexBiggestSum($array));
         return $array;
     };
 }
